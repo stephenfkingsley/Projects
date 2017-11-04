@@ -35,10 +35,11 @@ const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) =>
   {
     let randomRowIndex = Math.floor(Math.random() * numberOfRows);
     let randomColumnIndex = Math.floor(Math.random() * numberOfColumns);
-    board[randomRowIndex][randomColumnIndex] = 'B';
-    //Code in while loop has potential to lay bomb on top of existing bomb
-    //This will be fixed when I learn about control flow
-    numberOfBombsPlaced++;
+    if (board[randomRowIndex][randomColumnIndex] !== 'B')
+      {
+        board[randomRowIndex][randomColumnIndex] = 'B';
+        numberOfBombsPlaced++;
+      }
   }
   return board;
 };
